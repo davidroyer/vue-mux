@@ -1,17 +1,28 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <div class="container">
+      <h2>New Forms - Admin Overview</h2>
+      <video id="myVideo" controls></video>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
 export default {
   name: "app",
-  components: {
-    HelloWorld
+  mounted() {
+    // Replace with your asset's playback ID
+    var playbackId = "Xr1UdWNZHbjPWzevytd2wKgdth4R9YJe";
+    var url = "https://stream.mux.com/" + playbackId + ".m3u8";
+
+    // HLS.js-specific setup code
+    if (window.Hls.isSupported()) {
+      const Hls = window.Hls;
+      var video = document.getElementById("myVideo");
+      var hls = new Hls();
+      hls.loadSource(url);
+      hls.attachMedia(video);
+    }
   }
 };
 </script>
@@ -24,5 +35,17 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+
+  .container {
+    max-width: 1200px;
+    padding: 2em;
+    margin-left: auto;
+    margin-right: auto;
+
+    video {
+      width: 100%;
+      height: auto;
+    }
+  }
 }
 </style>
