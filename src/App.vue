@@ -12,7 +12,9 @@ export default {
   name: "app",
   mounted() {
     // Replace with your asset's playback ID
-    var playbackId = "Xr1UdWNZHbjPWzevytd2wKgdth4R9YJe";
+    // var playbackId = "Xr1UdWNZHbjPWzevytd2wKgdth4R9YJe";
+    var playbackId = "MM2Xkc3JHw7tf3fXQyYww92Tgcx7dGPP";
+
     var url = "https://stream.mux.com/" + playbackId + ".m3u8";
 
     // HLS.js-specific setup code
